@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminer-deployment
+  labels:
+    app: sql-adminer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sql-adminer
+  template:
+    metadata:
+      labels:
+        app: sql-adminer
+    spec:
+      containers:
+      - name: sql-adminer
+        image: adminer 
+        ports:
+        - containerPort: 8080

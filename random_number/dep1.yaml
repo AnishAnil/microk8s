@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randon-number
+  labels: 
+    app: randon-number1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randon-number1
+  template:
+    metadata:
+      labels:
+        app: randon-number1
+    spec: 
+      containers:
+      - name: alpine
+        image: alpine
+        command: ["/bin/sh", "-c",]
+        args: ["shuf -i 0-100 -n 1 >> /opt/number.out;"]
+        volumeMounts:
+          - name: data-volume
+            mountPath: /opt
+      volumes:
+      - name:  data-volume
+        hostPath:
+          path:  /data
+          type: Directory
