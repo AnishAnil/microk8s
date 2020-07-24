@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gerrit-deployment
+  labels:
+    app: gerrit-meta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gerrit
+      type: frontend
+  template:
+    metadata:
+      labels:
+        app: gerrit
+        type: frontend
+    spec:
+      containers:
+      - name: gerrit
+        image: k8sgerrit/gerrit
+        ports:
+        - containerPort: 80
+        - containerPort: 29418
+
