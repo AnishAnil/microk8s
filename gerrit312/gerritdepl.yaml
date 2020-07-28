@@ -18,8 +18,9 @@ spec:
     spec:
       containers:
       - name: gerrit
-        image: k8sgerrit/gerrit
+        #image: k8sgerrit/gerrit
+        image: k8sgerrit/gerrit-master
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         - containerPort: 29418
 
