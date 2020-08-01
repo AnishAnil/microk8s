@@ -39,8 +39,8 @@ spec:
           name: logs
         - mountPath: /var/gerrit/static
           name: static
-          #- mountPath: /var/gerrit/hooks
-          #name: hooks
+        - mountPath: /var/gerrit/hooks
+          name: hooks
         - mountPath: /var/gerrit/data
           name: data
         ports: 
@@ -80,10 +80,10 @@ spec:
         hostPath:
             path: /data/gerrit323/static
             type: Directory
-            #- name: hooks
-            #hostPath:
-            #path: /data/gerrit323/hooks
-            #type: Directory
+      - name: hooks
+        hostPath:
+            path: /data/gerrit323/hooks
+            type: Directory
       - name: data
         hostPath:
             path: /data/gerrit323/data
