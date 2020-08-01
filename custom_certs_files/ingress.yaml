@@ -17,10 +17,6 @@ spec:
         backend:
           serviceName: gerrit-service
           servicePort: 8080
-      - path: /v2
-        backend:
-          serviceName: web2
-          servicePort: 8080
       - path: /apple
         backend:
           serviceName: apple-service

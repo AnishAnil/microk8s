@@ -21,7 +21,7 @@ spec:
         image: gerritcodereview/gerrit
         env:
           - name: CANONICAL_WEB_URL
-            value: https://ec2-3-21-39-210.us-east-2.compute.amazonaws.com
+            value: https://ec2-3-21-39-210.us-east-2.compute.amazonaws.com:443
         volumeMounts:
         - mountPath: /var/gerrit/etc
           name: etc
