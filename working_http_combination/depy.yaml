@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gerrit-deployment
+  labels:
+    app: gerrit-meta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gerrit
+      type: frontend
+  template:
+    metadata:
+      labels:
+        app: gerrit
+        type: frontend
+    spec:
+      containers:
+      - name: gerrit
+        image: gerritcodereview/gerrit
+        env:
+          - name: CANONICAL_WEB_URL
+            value: http://ec2-18-222-142-218.us-east-2.compute.amazonaws.com:8080
+        ports:
+         - containerPort: 8080
+         - containerPort: 29418
+
