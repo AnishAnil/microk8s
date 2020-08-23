@@ -19,6 +19,7 @@ spec:
       containers:
       - name: gerrit
         image: gerritcodereview/gerrit
+        imagePullPolicy: Always
         env:
           - name: CANONICAL_WEB_URL
             value: http://ec2-18-222-142-218.us-east-2.compute.amazonaws.com:8080
